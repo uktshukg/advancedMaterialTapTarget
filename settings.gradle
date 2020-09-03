@@ -1,0 +1,3 @@
+include ':advancedMaterialTapTarget'
+include ':app'
+rootProject.name = "TargetView"
