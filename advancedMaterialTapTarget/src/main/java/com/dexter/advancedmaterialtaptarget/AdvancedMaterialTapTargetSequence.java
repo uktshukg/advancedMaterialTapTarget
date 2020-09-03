@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * A Sequence of prompts to be shown one after another
  */
-public class MaterialTapTargetSequence
+public class AdvancedMaterialTapTargetSequence
 {
     /**
      * The list of prompts to display when the sequence is shown
@@ -59,7 +59,7 @@ public class MaterialTapTargetSequence
             // Cleanup current prompt
             final SequenceItem currentItem = items.get(nextPromptIndex);
             currentItem.setSequenceListener(null);
-            final MaterialTapTargetPrompt prompt = currentItem.getState().getPrompt();
+            final AdvancedMaterialTapTargetPrompt prompt = currentItem.getState().getPrompt();
             if (prompt != null)
             {
                 prompt.mView.mPromptOptions.setSequenceListener(null);
@@ -89,7 +89,7 @@ public class MaterialTapTargetSequence
      * @param listener the listener with the action to execute
      */
     @NonNull
-    public MaterialTapTargetSequence setSequenceCompleteListener(@Nullable SequenceCompleteListener listener)
+    public AdvancedMaterialTapTargetSequence setSequenceCompleteListener(@Nullable SequenceCompleteListener listener)
     {
         mOnCompleteListener = listener;
         return this;
@@ -101,7 +101,7 @@ public class MaterialTapTargetSequence
      * @param prompt The prompt to add.
      */
     @NonNull
-    public MaterialTapTargetSequence addPrompt(@Nullable MaterialTapTargetPrompt prompt)
+    public AdvancedMaterialTapTargetSequence addPrompt(@Nullable AdvancedMaterialTapTargetPrompt prompt)
     {
         this.addItem(new SequenceItem(new SequenceState(prompt)));
         return this;
@@ -115,8 +115,8 @@ public class MaterialTapTargetSequence
      * @return This.
      */
     @NonNull
-    public MaterialTapTargetSequence addPrompt(@Nullable MaterialTapTargetPrompt prompt,
-                                               final long milliseconds)
+    public AdvancedMaterialTapTargetSequence addPrompt(@Nullable AdvancedMaterialTapTargetPrompt prompt,
+                                                       final long milliseconds)
     {
         this.addItem(new SequenceItemShowFor(new SequenceState(prompt), milliseconds));
         return this;
@@ -129,7 +129,7 @@ public class MaterialTapTargetSequence
      * @return This.
      */
     @NonNull
-    public MaterialTapTargetSequence addPrompt(@NonNull PromptOptions promptOptions)
+    public AdvancedMaterialTapTargetSequence addPrompt(@NonNull PromptOptions promptOptions)
     {
         this.addItem(new SequenceItem(new SequenceStatePromptOptions(promptOptions)));
         return this;
@@ -143,8 +143,8 @@ public class MaterialTapTargetSequence
      * @return This.
      */
     @NonNull
-    public MaterialTapTargetSequence addPrompt(@NonNull PromptOptions promptOptions,
-                                               final long milliseconds)
+    public AdvancedMaterialTapTargetSequence addPrompt(@NonNull PromptOptions promptOptions,
+                                                       final long milliseconds)
     {
         this.addItem(new SequenceItemShowFor(new SequenceStatePromptOptions(promptOptions), milliseconds));
         return this;
@@ -159,7 +159,7 @@ public class MaterialTapTargetSequence
      * @return This.
      */
     @NonNull
-    public MaterialTapTargetSequence addPrompt(@NonNull final SequenceItem item)
+    public AdvancedMaterialTapTargetSequence addPrompt(@NonNull final SequenceItem item)
     {
         this.items.add(item);
         return this;
@@ -172,8 +172,8 @@ public class MaterialTapTargetSequence
      */
     private void addItem(@NonNull final SequenceItem sequenceItem)
     {
-        sequenceItem.addStateChanger(MaterialTapTargetPrompt.STATE_FINISHED);
-        sequenceItem.addStateChanger(MaterialTapTargetPrompt.STATE_DISMISSED);
+        sequenceItem.addStateChanger(AdvancedMaterialTapTargetPrompt.STATE_FINISHED);
+        sequenceItem.addStateChanger(AdvancedMaterialTapTargetPrompt.STATE_DISMISSED);
         this.items.add(sequenceItem);
     }
 
@@ -205,7 +205,7 @@ public class MaterialTapTargetSequence
      * @return This.
      */
     @NonNull
-    public MaterialTapTargetSequence show()
+    public AdvancedMaterialTapTargetSequence show()
     {
         this.nextPromptIndex = 0;
         if (!this.items.isEmpty())
@@ -228,7 +228,7 @@ public class MaterialTapTargetSequence
     {
         final SequenceItem sequenceItem = this.items.get(index);
         sequenceItem.setSequenceListener(this.itemListener);
-        final MaterialTapTargetPrompt prompt = sequenceItem.getState().getPrompt();
+        final AdvancedMaterialTapTargetPrompt prompt = sequenceItem.getState().getPrompt();
         if (prompt != null)
         {
             // add the listener to trigger the next in the sequence
@@ -244,13 +244,13 @@ public class MaterialTapTargetSequence
      * @return This.
      */
     @NonNull
-    public MaterialTapTargetSequence finish()
+    public AdvancedMaterialTapTargetSequence finish()
     {
         if (this.nextPromptIndex > -1 && this.nextPromptIndex < this.items.size())
         {
             final SequenceItem sequenceItem = this.items.get(nextPromptIndex);
             sequenceItem.setSequenceListener(null);
-            final MaterialTapTargetPrompt prompt = sequenceItem.getState().getPrompt();
+            final AdvancedMaterialTapTargetPrompt prompt = sequenceItem.getState().getPrompt();
             if (prompt != null)
             {
                 prompt.mView.mPromptOptions.setSequenceListener(null);
@@ -267,13 +267,13 @@ public class MaterialTapTargetSequence
      * @return This.
      */
     @NonNull
-    public MaterialTapTargetSequence dismiss()
+    public AdvancedMaterialTapTargetSequence dismiss()
     {
         if (this.nextPromptIndex > -1 && this.nextPromptIndex < this.items.size())
         {
             final SequenceItem sequenceItem = this.items.get(nextPromptIndex);
             sequenceItem.setSequenceListener(null);
-            final MaterialTapTargetPrompt prompt = sequenceItem.getState().getPrompt();
+            final AdvancedMaterialTapTargetPrompt prompt = sequenceItem.getState().getPrompt();
             if (prompt != null)
             {
                 prompt.mView.mPromptOptions.setSequenceListener(null);
@@ -290,7 +290,7 @@ public class MaterialTapTargetSequence
      * @return This.
      */
     @NonNull
-    public MaterialTapTargetSequence showFromIndex(final int index)
+    public AdvancedMaterialTapTargetSequence showFromIndex(final int index)
     {
         this.dismiss();
         this.nextPromptIndex = index;

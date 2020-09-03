@@ -18,7 +18,7 @@ package com.dexter.advancedmaterialtaptarget.extras.sequence;
 
 import androidx.annotation.Nullable;
 
-import com.dexter.advancedmaterialtaptarget.MaterialTapTargetPrompt;
+import com.dexter.advancedmaterialtaptarget.AdvancedMaterialTapTargetPrompt;
 
 
 /**
@@ -30,14 +30,14 @@ public class SequenceState
      * The stored prompt.
      */
     @Nullable
-    MaterialTapTargetPrompt prompt;
+    AdvancedMaterialTapTargetPrompt prompt;
 
     /**
      * Constructor.
      *
      * @param prompt The prompt to use in this state.
      */
-    public SequenceState(@Nullable final MaterialTapTargetPrompt prompt)
+    public SequenceState(@Nullable final AdvancedMaterialTapTargetPrompt prompt)
     {
         this.prompt = prompt;
     }
@@ -48,7 +48,7 @@ public class SequenceState
      * @return The prompt.
      */
     @Nullable
-    public MaterialTapTargetPrompt getPrompt()
+    public AdvancedMaterialTapTargetPrompt getPrompt()
     {
         return this.prompt;
     }

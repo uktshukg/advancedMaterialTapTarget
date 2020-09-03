@@ -40,15 +40,13 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.StyleRes;
 
-import com.dexter.advancedmaterialtaptarget.MaterialTapTargetPrompt;
+import com.dexter.advancedmaterialtaptarget.AdvancedMaterialTapTargetPrompt;
 import com.dexter.advancedmaterialtaptarget.R;
 import com.dexter.advancedmaterialtaptarget.ResourceFinder;
 import com.dexter.advancedmaterialtaptarget.extras.backgrounds.CirclePromptBackground;
 import com.dexter.advancedmaterialtaptarget.extras.focals.CirclePromptFocal;
 
 import org.jetbrains.annotations.NotNull;
-
-import kotlin.jvm.JvmOverloads;
 
 
 /**
@@ -157,13 +155,13 @@ public class PromptOptions<T extends PromptOptions>
     /**
      * Listener for when the prompt state changes.
      */
-    @Nullable private MaterialTapTargetPrompt.PromptStateChangeListener mPromptStateChangeListener;
+    @Nullable private AdvancedMaterialTapTargetPrompt.PromptStateChangeListener mPromptStateChangeListener;
 
     /**
      * Additional listener that can be set by other package classes for handling e.g. sequences of
      * prompts.
      */
-    @Nullable private MaterialTapTargetPrompt.PromptStateChangeListener mSequencePromptStateChangeListener;
+    @Nullable private AdvancedMaterialTapTargetPrompt.PromptStateChangeListener mSequencePromptStateChangeListener;
 
 
     private boolean mCaptureTouchEventOnFocal;
@@ -1012,7 +1010,7 @@ public class PromptOptions<T extends PromptOptions>
      */
     @NonNull
     public T setPromptStateChangeListener(
-            @Nullable final MaterialTapTargetPrompt.PromptStateChangeListener listener)
+            @Nullable final AdvancedMaterialTapTargetPrompt.PromptStateChangeListener listener)
     {
         mPromptStateChangeListener = listener;
         return (T) this;
@@ -1026,7 +1024,7 @@ public class PromptOptions<T extends PromptOptions>
      * @param listener The listener to use
      */
     public void setSequenceListener(
-            @Nullable final MaterialTapTargetPrompt.PromptStateChangeListener listener)
+            @Nullable final AdvancedMaterialTapTargetPrompt.PromptStateChangeListener listener)
     {
         mSequencePromptStateChangeListener = listener;
     }
@@ -1037,7 +1035,7 @@ public class PromptOptions<T extends PromptOptions>
      *
      * @param state The state that the prompt is now in.
      */
-    public void onPromptStateChanged(@NonNull final MaterialTapTargetPrompt prompt, final int state)
+    public void onPromptStateChanged(@NonNull final AdvancedMaterialTapTargetPrompt prompt, final int state)
     {
         if (mPromptStateChangeListener != null)
         {
@@ -1051,7 +1049,7 @@ public class PromptOptions<T extends PromptOptions>
      *
      * @param state The state that the prompt is now in.
      */
-    public void onExtraPromptStateChanged(@NonNull final MaterialTapTargetPrompt prompt, final int state)
+    public void onExtraPromptStateChanged(@NonNull final AdvancedMaterialTapTargetPrompt prompt, final int state)
     {
         if (mSequencePromptStateChangeListener != null)
         {
@@ -1213,8 +1211,8 @@ public class PromptOptions<T extends PromptOptions>
      * Set whether the prompt should dismiss itself when a touch event occurs outside the focal.
      * Default is true.
      *
-     * Listen for the {@link MaterialTapTargetPrompt#STATE_NON_FOCAL_PRESSED} event in the
-     * {@link #setPromptStateChangeListener(MaterialTapTargetPrompt.PromptStateChangeListener)} to handle the prompt
+     * Listen for the {@link AdvancedMaterialTapTargetPrompt#STATE_NON_FOCAL_PRESSED} event in the
+     * {@link #setPromptStateChangeListener(AdvancedMaterialTapTargetPrompt.PromptStateChangeListener)} to handle the prompt
      * being pressed outside the focal area.
      *
      * @param autoDismiss True - prompt will dismiss when touched outside the focal, false - no
@@ -1243,8 +1241,8 @@ public class PromptOptions<T extends PromptOptions>
      * Set whether the prompt should finish itself when a touch event occurs inside the focal.
      * Default is true.
      *
-     * Listen for the {@link MaterialTapTargetPrompt#STATE_FOCAL_PRESSED} event in the
-     * {@link #setPromptStateChangeListener(MaterialTapTargetPrompt.PromptStateChangeListener)} to handle the prompt
+     * Listen for the {@link AdvancedMaterialTapTargetPrompt#STATE_FOCAL_PRESSED} event in the
+     * {@link #setPromptStateChangeListener(AdvancedMaterialTapTargetPrompt.PromptStateChangeListener)} to handle the prompt
      * target being pressed.
      *
      * @param autoFinish True - prompt will finish when touched inside the focal, false - no
@@ -1482,7 +1480,7 @@ public class PromptOptions<T extends PromptOptions>
     }
 
     /**
-     * Creates an {@link MaterialTapTargetPrompt} with the arguments supplied to this
+     * Creates an {@link AdvancedMaterialTapTargetPrompt} with the arguments supplied to this
      * builder.
      * <p>
      * Calling this method does not display the prompt. If no additional
@@ -1498,13 +1496,13 @@ public class PromptOptions<T extends PromptOptions>
      * @return The created builder or null if no target
      */
     @Nullable
-    public MaterialTapTargetPrompt create()
+    public AdvancedMaterialTapTargetPrompt create()
     {
         if (!mTargetSet || (mPrimaryText == null && mSecondaryText == null))
         {
             return null;
         }
-        final MaterialTapTargetPrompt mPrompt = MaterialTapTargetPrompt.createDefault(this);
+        final AdvancedMaterialTapTargetPrompt mPrompt = AdvancedMaterialTapTargetPrompt.createDefault(this);
 
         if (mAnimationInterpolator == null)
         {
@@ -1546,7 +1544,7 @@ public class PromptOptions<T extends PromptOptions>
     }
 
     /**
-     * Creates a {@link MaterialTapTargetPrompt} with the arguments supplied to this
+     * Creates a {@link AdvancedMaterialTapTargetPrompt} with the arguments supplied to this
      * builder and immediately displays the prompt.
      * <p>
      * Calling this method is functionally identical to:
@@ -1564,9 +1562,9 @@ public class PromptOptions<T extends PromptOptions>
      * @return The created builder or null if no target
      */
     @Nullable
-    public MaterialTapTargetPrompt show()
+    public AdvancedMaterialTapTargetPrompt show()
     {
-        final MaterialTapTargetPrompt mPrompt = create();
+        final AdvancedMaterialTapTargetPrompt mPrompt = create();
         if (mPrompt != null)
         {
             mPrompt.show();
@@ -1575,7 +1573,7 @@ public class PromptOptions<T extends PromptOptions>
     }
 
     /**
-     * Creates a {@link MaterialTapTargetPrompt} with the arguments supplied to this
+     * Creates a {@link AdvancedMaterialTapTargetPrompt} with the arguments supplied to this
      * builder and immediately displays the prompt for the number of milliseconds supplied.
      * <p>
      * Calling this method is functionally identical to:
@@ -1594,9 +1592,9 @@ public class PromptOptions<T extends PromptOptions>
      * @return The created builder or null if no target
      */
     @Nullable
-    public MaterialTapTargetPrompt showFor(final long milliseconds)
+    public AdvancedMaterialTapTargetPrompt showFor(final long milliseconds)
     {
-        final MaterialTapTargetPrompt mPrompt = create();
+        final AdvancedMaterialTapTargetPrompt mPrompt = create();
         if (mPrompt != null)
         {
             mPrompt.showFor(milliseconds);

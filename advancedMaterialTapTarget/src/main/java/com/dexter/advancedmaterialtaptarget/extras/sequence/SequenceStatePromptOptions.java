@@ -19,7 +19,7 @@ package com.dexter.advancedmaterialtaptarget.extras.sequence;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.dexter.advancedmaterialtaptarget.MaterialTapTargetPrompt;
+import com.dexter.advancedmaterialtaptarget.AdvancedMaterialTapTargetPrompt;
 import com.dexter.advancedmaterialtaptarget.extras.PromptOptions;
 
 
@@ -48,7 +48,7 @@ public class SequenceStatePromptOptions extends SequenceState
 
     @Nullable
     @Override
-    public MaterialTapTargetPrompt getPrompt()
+    public AdvancedMaterialTapTargetPrompt getPrompt()
     {
         if (this.prompt == null)
         {

@@ -32,7 +32,7 @@ import androidx.annotation.StyleRes;
 import androidx.annotation.StyleableRes;
 
 /**
- * Interface used to find resources required by {@link MaterialTapTargetPrompt}.
+ * Interface used to find resources required by {@link AdvancedMaterialTapTargetPrompt}.
  */
 public interface ResourceFinder
 {

@@ -18,7 +18,7 @@ package com.dexter.advancedmaterialtaptarget.extras.sequence;
 
 import androidx.annotation.NonNull;
 
-import com.dexter.advancedmaterialtaptarget.MaterialTapTargetPrompt;
+import com.dexter.advancedmaterialtaptarget.AdvancedMaterialTapTargetPrompt;
 
 
 /**
@@ -44,7 +44,7 @@ public class SequenceItemShowFor extends SequenceItem
     }
 
     @Override
-    protected void show(@NonNull final MaterialTapTargetPrompt prompt)
+    protected void show(@NonNull final AdvancedMaterialTapTargetPrompt prompt)
     {
         prompt.showFor(milliseconds);
     }

@@ -31,7 +31,6 @@ import android.graphics.Region;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -59,7 +58,7 @@ import com.dexter.advancedmaterialtaptarget.extras.PromptOptions;
  * Material Design guidelines.</p>
  * </div>
  */
-public class MaterialTapTargetPrompt
+public class AdvancedMaterialTapTargetPrompt
 {
 
     /**
@@ -177,7 +176,7 @@ public class MaterialTapTargetPrompt
      *
      * @param promptOptions The options used to create the prompt.
      */
-    public MaterialTapTargetPrompt(final PromptOptions promptOptions)
+    public AdvancedMaterialTapTargetPrompt(final PromptOptions promptOptions)
     {
         final ResourceFinder resourceFinder = promptOptions.getResourceFinder();
         mView = new PromptView(resourceFinder.getContext());
@@ -720,9 +719,9 @@ public class MaterialTapTargetPrompt
      * @return The created prompt.
      */
     @NonNull
-    public static MaterialTapTargetPrompt createDefault(@NonNull final PromptOptions promptOptions)
+    public static AdvancedMaterialTapTargetPrompt createDefault(@NonNull final PromptOptions promptOptions)
     {
-        return new MaterialTapTargetPrompt(promptOptions);
+        return new AdvancedMaterialTapTargetPrompt(promptOptions);
     }
 
     /**
@@ -739,7 +738,7 @@ public class MaterialTapTargetPrompt
         PromptTouchedListener mPromptTouchedListener;
         Rect mClipBounds = new Rect();
         View mTargetRenderView;
-        MaterialTapTargetPrompt mPrompt;
+        AdvancedMaterialTapTargetPrompt mPrompt;
         PromptOptions mPromptOptions;
         boolean mClipToBounds;
         AccessibilityManager mAccessibilityManager;
@@ -1018,7 +1017,7 @@ public class MaterialTapTargetPrompt
     }
 
     /**
-     * A builder to create a {@link MaterialTapTargetPrompt} instance.
+     * A builder to create a {@link AdvancedMaterialTapTargetPrompt} instance.
      */
     public static class Builder extends PromptOptions<Builder>
     {
@@ -1156,7 +1155,7 @@ public class MaterialTapTargetPrompt
          *               #STATE_FOCAL_PRESSED}, {@link #STATE_FINISHED}, {@link #STATE_DISMISSING},
          *               {@link #STATE_DISMISSED}
          */
-        void onPromptStateChanged(@NonNull final MaterialTapTargetPrompt prompt, final int state);
+        void onPromptStateChanged(@NonNull final AdvancedMaterialTapTargetPrompt prompt, final int state);
     }
 
     static class AnimatorListener implements Animator.AnimatorListener

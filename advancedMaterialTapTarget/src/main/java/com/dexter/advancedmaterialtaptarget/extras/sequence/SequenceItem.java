@@ -19,8 +19,8 @@ package com.dexter.advancedmaterialtaptarget.extras.sequence;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.dexter.advancedmaterialtaptarget.MaterialTapTargetPrompt;
-import com.dexter.advancedmaterialtaptarget.MaterialTapTargetSequence;
+import com.dexter.advancedmaterialtaptarget.AdvancedMaterialTapTargetPrompt;
+import com.dexter.advancedmaterialtaptarget.AdvancedMaterialTapTargetSequence;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * Represents a prompt to display in a sequence.
  */
-public class SequenceItem implements MaterialTapTargetPrompt.PromptStateChangeListener
+public class SequenceItem implements AdvancedMaterialTapTargetPrompt.PromptStateChangeListener
 {
     /**
      * Defines the prompt in this sequence item.
@@ -47,7 +47,7 @@ public class SequenceItem implements MaterialTapTargetPrompt.PromptStateChangeLi
      * Listener for this sequence item completing.
      */
     @Nullable
-    private MaterialTapTargetSequence.SequenceCompleteListener sequenceListener;
+    private AdvancedMaterialTapTargetSequence.SequenceCompleteListener sequenceListener;
 
     /**
      * Constructor.
@@ -62,14 +62,14 @@ public class SequenceItem implements MaterialTapTargetPrompt.PromptStateChangeLi
     /**
      * Add a state that will trigger the sequence to move on.
      *
-     * @see MaterialTapTargetPrompt#STATE_REVEALING
-     * @see MaterialTapTargetPrompt#STATE_REVEALED
-     * @see MaterialTapTargetPrompt#STATE_FOCAL_PRESSED
-     * @see MaterialTapTargetPrompt#STATE_FINISHING
-     * @see MaterialTapTargetPrompt#STATE_FINISHED
-     * @see MaterialTapTargetPrompt#STATE_NON_FOCAL_PRESSED
-     * @see MaterialTapTargetPrompt#STATE_DISMISSING
-     * @see MaterialTapTargetPrompt#STATE_DISMISSED
+     * @see AdvancedMaterialTapTargetPrompt#STATE_REVEALING
+     * @see AdvancedMaterialTapTargetPrompt#STATE_REVEALED
+     * @see AdvancedMaterialTapTargetPrompt#STATE_FOCAL_PRESSED
+     * @see AdvancedMaterialTapTargetPrompt#STATE_FINISHING
+     * @see AdvancedMaterialTapTargetPrompt#STATE_FINISHED
+     * @see AdvancedMaterialTapTargetPrompt#STATE_NON_FOCAL_PRESSED
+     * @see AdvancedMaterialTapTargetPrompt#STATE_DISMISSING
+     * @see AdvancedMaterialTapTargetPrompt#STATE_DISMISSED
      *
      * @param state The state that triggers the sequence to move on.
      */
@@ -81,14 +81,14 @@ public class SequenceItem implements MaterialTapTargetPrompt.PromptStateChangeLi
     /**
      * Remove a specific state changer.
      *
-     * @see MaterialTapTargetPrompt#STATE_REVEALING
-     * @see MaterialTapTargetPrompt#STATE_REVEALED
-     * @see MaterialTapTargetPrompt#STATE_FOCAL_PRESSED
-     * @see MaterialTapTargetPrompt#STATE_FINISHING
-     * @see MaterialTapTargetPrompt#STATE_FINISHED
-     * @see MaterialTapTargetPrompt#STATE_NON_FOCAL_PRESSED
-     * @see MaterialTapTargetPrompt#STATE_DISMISSING
-     * @see MaterialTapTargetPrompt#STATE_DISMISSED
+     * @see AdvancedMaterialTapTargetPrompt#STATE_REVEALING
+     * @see AdvancedMaterialTapTargetPrompt#STATE_REVEALED
+     * @see AdvancedMaterialTapTargetPrompt#STATE_FOCAL_PRESSED
+     * @see AdvancedMaterialTapTargetPrompt#STATE_FINISHING
+     * @see AdvancedMaterialTapTargetPrompt#STATE_FINISHED
+     * @see AdvancedMaterialTapTargetPrompt#STATE_NON_FOCAL_PRESSED
+     * @see AdvancedMaterialTapTargetPrompt#STATE_DISMISSING
+     * @see AdvancedMaterialTapTargetPrompt#STATE_DISMISSED
      *
      * @param state The state to remove.
      */
@@ -110,7 +110,7 @@ public class SequenceItem implements MaterialTapTargetPrompt.PromptStateChangeLi
      *
      * @param listener The item finish listener.
      */
-    public void setSequenceListener(@Nullable final MaterialTapTargetSequence.SequenceCompleteListener listener)
+    public void setSequenceListener(@Nullable final AdvancedMaterialTapTargetSequence.SequenceCompleteListener listener)
     {
         this.sequenceListener = listener;
     }
@@ -131,7 +131,7 @@ public class SequenceItem implements MaterialTapTargetPrompt.PromptStateChangeLi
      */
     public void show()
     {
-        final MaterialTapTargetPrompt prompt = this.sequenceState.getPrompt();
+        final AdvancedMaterialTapTargetPrompt prompt = this.sequenceState.getPrompt();
         if (prompt != null)
         {
             this.show(prompt);
@@ -143,11 +143,11 @@ public class SequenceItem implements MaterialTapTargetPrompt.PromptStateChangeLi
     }
 
     /**
-     * Calls {@link MaterialTapTargetPrompt#finish()} on this items states prompt.
+     * Calls {@link AdvancedMaterialTapTargetPrompt#finish()} on this items states prompt.
      */
     public void finish()
     {
-        final MaterialTapTargetPrompt prompt = this.sequenceState.getPrompt();
+        final AdvancedMaterialTapTargetPrompt prompt = this.sequenceState.getPrompt();
         if (prompt != null)
         {
             prompt.finish();
@@ -155,11 +155,11 @@ public class SequenceItem implements MaterialTapTargetPrompt.PromptStateChangeLi
     }
 
     /**
-     * Calls {@link MaterialTapTargetPrompt#dismiss()} on this items states prompt.
+     * Calls {@link AdvancedMaterialTapTargetPrompt#dismiss()} on this items states prompt.
      */
     public void dismiss()
     {
-        final MaterialTapTargetPrompt prompt = this.sequenceState.getPrompt();
+        final AdvancedMaterialTapTargetPrompt prompt = this.sequenceState.getPrompt();
         if (prompt != null)
         {
             prompt.dismiss();
@@ -171,13 +171,13 @@ public class SequenceItem implements MaterialTapTargetPrompt.PromptStateChangeLi
      *
      * @param prompt The prompt to show, this will never be null here.
      */
-    protected void show(@NonNull final MaterialTapTargetPrompt prompt)
+    protected void show(@NonNull final AdvancedMaterialTapTargetPrompt prompt)
     {
         prompt.show();
     }
 
     @Override
-    public void onPromptStateChanged(@NonNull final MaterialTapTargetPrompt prompt, final int state)
+    public void onPromptStateChanged(@NonNull final AdvancedMaterialTapTargetPrompt prompt, final int state)
     {
         if (this.stateChangers.contains(state))
         {
@@ -186,7 +186,7 @@ public class SequenceItem implements MaterialTapTargetPrompt.PromptStateChangeLi
     }
 
     /**
-     * Emits the {@link MaterialTapTargetSequence.SequenceCompleteListener#onSequenceComplete()} event if the listener
+     * Emits the {@link AdvancedMaterialTapTargetSequence.SequenceCompleteListener#onSequenceComplete()} event if the listener
      * is set.
      */
     protected void onItemComplete()
