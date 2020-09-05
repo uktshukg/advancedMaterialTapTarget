@@ -38,7 +38,7 @@ import com.dexter.advancedmaterialtaptarget.extras.PromptUtils;
 /**
  * Prompt focal implementation to draw the focal as a rectangle.
  */
-public class RectanglePromptFocal extends PromptFocal
+public class AdvancedRectanglePromptFocal extends PromptFocal
 {
     Paint mPaint;
     // Paint mBoundsPaint;
@@ -56,7 +56,7 @@ public class RectanglePromptFocal extends PromptFocal
     /**
      * Constructor.
      */
-    public RectanglePromptFocal()
+    public AdvancedRectanglePromptFocal()
     {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
@@ -80,7 +80,7 @@ public class RectanglePromptFocal extends PromptFocal
      * @return This prompt focal
      */
     @NonNull
-    public RectanglePromptFocal setCornerRadius(final float rx, final float ry)
+    public AdvancedRectanglePromptFocal setCornerRadius(final float rx, final float ry)
     {
         mRx = rx;
         mRy = ry;
@@ -94,7 +94,7 @@ public class RectanglePromptFocal extends PromptFocal
      * @return This prompt focal.
      */
     @NonNull
-    public RectanglePromptFocal setTargetPadding(@Dimension final float padding)
+    public AdvancedRectanglePromptFocal setTargetPadding(@Dimension final float padding)
     {
         mPadding = padding;
         return this;
@@ -107,7 +107,7 @@ public class RectanglePromptFocal extends PromptFocal
      * @return This prompt focal
      */
     @NonNull
-    public RectanglePromptFocal setSize(@Nullable final PointF size)
+    public AdvancedRectanglePromptFocal setSize(@Nullable final PointF size)
     {
         if (size == null)
         {
